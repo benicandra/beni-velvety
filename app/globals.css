@@ -103,7 +103,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-light;
   }
   html {
     @apply font-sans;
@@ -114,5 +114,6 @@
   h4,
   h5 {
     font-family: var(--font-heading);
+    font-weight: 300;
   }
 }

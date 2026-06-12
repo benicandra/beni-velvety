@@ -25,7 +25,7 @@ function DesktopNav() {
           >
             <Link
               href={link.href}
-              className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors tracking-wide h-full"
+              className="flex items-center gap-1.5 text-sm font-medium text-gray-0 hover:text-primary transition-colors tracking-wide h-full"
             >
               {link.label}
               {link.hasDropdown && (
@@ -68,7 +68,7 @@ function DesktopNav() {
           <Link
             key={link.label}
             href={link.href}
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors tracking-wide"
+            className="text-sm font-medium text-gray-0 hover:text-primary transition-colors tracking-wide"
           >
             {link.label}
           </Link>
