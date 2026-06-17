@@ -17,6 +17,11 @@ const aileron = localFont({
       weight: "400",
       style: "normal",
     },
+    {
+      path: "./fonts/Aileron-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
   ],
   variable: "--font-sans",
   display: "swap",
