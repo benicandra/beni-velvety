@@ -2,7 +2,7 @@ import Chicori from "@/app/assets/products/chicori.webp";
 import Notorious from "@/app/assets/products/notorious.webp";
 import Holocena from "@/app/assets/products/holocena.webp";
 
-import { FeaturedCard } from "./FeaturedCard";
+import { ProductCard } from "@/components/shared/ProductCard/ProductCard";
 
 export default function Featured() {
   return (
@@ -14,20 +14,20 @@ export default function Featured() {
         </h2>
       </div>
       <div className="flex-col border border-primary-border">
-        <FeaturedCard
+        <ProductCard
           imageSrc={Chicori}
           title="CHICORI"
           price={20}
           rating={4.0}
         />
-        <FeaturedCard
+        <ProductCard
           imageSrc={Notorious}
           title="NOTORIOUS"
           price={23}
           rating={5.0}
           className="border border-primary-border"
         />
-        <FeaturedCard
+        <ProductCard
           imageSrc={Holocena}
           title="HOLOCENA"
           price={20}

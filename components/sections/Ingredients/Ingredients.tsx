@@ -6,7 +6,7 @@ import Organic from "@/app/assets/icons/organic.svg";
 import FitSkin from "@/app/assets/icons/fits-skin.svg";
 import EasyUse from "@/app/assets/icons/easy-use.svg";
 
-import { IngredientsCard } from "./IngredientsCard";
+import { IngredientCard } from "./InggredientCard";
 
 export default function Ingredients() {
   return (
@@ -22,17 +22,17 @@ export default function Ingredients() {
         </div>
       </div>
       <div className="flex flex-col gap-8 py-14 px-4 bg-primary-surface">
-        <IngredientsCard
+        <IngredientCard
           Icon={Organic}
           title="100% Organic"
           description="We craft skincare using the most exquisite ingredients from the plant, earth and mineral realms."
         />
-        <IngredientsCard
+        <IngredientCard
           Icon={FitSkin}
           title="Fits your skin"
           description="Its all natural and processed based on traditional knowledge with modern technology."
         />
-        <IngredientsCard
+        <IngredientCard
           Icon={EasyUse}
           title="Easy to use"
           description="Packed with a unique design as well as usefull that can help you perform routine skin care."

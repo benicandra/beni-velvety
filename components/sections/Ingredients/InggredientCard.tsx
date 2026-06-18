@@ -6,7 +6,7 @@ export interface IngredientsCardProps {
   description: string;
 }
 
-export const IngredientsCard = ({
+export const IngredientCard = ({
   Icon,
   title,
   description,

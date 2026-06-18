@@ -3,26 +3,31 @@ import StarFull from "@/app/assets/icons/star-full.svg";
 import Star from "@/app/assets/icons/star.svg";
 import { cn } from "@/lib/utils";
 
-export interface FeaturedCardProps {
+export interface ProductCardProps {
   imageSrc: StaticImageData;
   title: string;
   price: number | string;
   rating: number;
   className?: string;
+  imageClassName?: string;
 }
 
-export const FeaturedCard = ({
+export const ProductCard = ({
   imageSrc,
   title,
   price,
   rating,
   className,
-}: FeaturedCardProps) => {
+  imageClassName,
+}: ProductCardProps) => {
   return (
     <div className={cn("flex flex-col p-5 gap-6", className)}>
       <div className="bg-primary-surface">
         <Image
-          className="relative w-[279.88px] h-[314px] left-[27.56px] object-cover"
+          className={cn(
+            "relative w-[279.88px] h-[314px] left-[27.56px] object-cover",
+            imageClassName
+          )}
           src={imageSrc}
           alt={title}
         />
@@ -45,7 +50,7 @@ export const FeaturedCard = ({
                   key={index}
                   className="w-[18.4px] h-[17.5px] text-gray-80"
                 />
-              )
+              ),
             )}
           </div>
           <p>{rating.toFixed(1)}</p>

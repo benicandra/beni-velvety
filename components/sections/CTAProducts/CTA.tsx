@@ -1,5 +1,4 @@
 import ArrowRight from "@/app/assets/icons/arrow-right.svg";
-import { Button } from "@/components/ui/button";
 
 export default function CTA() {
   return (

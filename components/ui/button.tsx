@@ -12,6 +12,10 @@ const buttonVariants = cva(
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         hero: "bg-[#f4f4f0] text-primary hover:bg-white rounded-none",
+        pillActive:
+          "bg-primary-surface text-primary border-transparent hover:bg-primary-surface/80 rounded-full font-normal",
+        pillInactive:
+          "border-primary-border bg-transparent text-gray-40 hover:bg-primary-surface/50 hover:text-primary rounded-full font-normal",
       },
       size: {
         default:
@@ -19,6 +23,7 @@ const buttonVariants = cva(
         "icon-sm":
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         hero: "px-8 py-3 gap-3 text-lg",
+        pill: "px-4 py-2 text-base",
       },
     },
     defaultVariants: {
