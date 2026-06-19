@@ -2,94 +2,126 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "@/config/navigation";
 import { pagesDropdown } from "@/config/navigation";
 import { ArrowDownIcon } from "./ArrowDownIcon";
+import { cn } from "@/lib/utils";
 
-function MobileMenu({
+export function MobileMenu({
   isOpen,
   onClose,
 }: {
   isOpen: boolean;
   onClose: () => void;
 }) {
-  const [isPagesOpen, setIsPagesOpen] = useState(false);
-  const pathname = usePathname();
-
-  const allDropdownItems = [...pagesDropdown.col1, ...pagesDropdown.col2];
+  const [isPagesOpen, setIsPagesOpen] = useState(true);
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="lg:hidden bg-background border-t border-border/40 overflow-hidden"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 z-40 bg-background lg:hidden pt-20 flex flex-col"
         >
-          <nav className="flex flex-col p-4">
-            {navLinks.map((link) => (
-              <div key={link.label}>
-                <button
-                  className="w-full flex items-center justify-between py-4 text-sm font-medium text-foreground hover:text-primary transition-colors"
-                  onClick={() => {
-                    if (link.hasDropdown) {
-                      setIsPagesOpen(!isPagesOpen);
-                    } else {
-                      onClose();
-                    }
-                  }}
+          <div className="flex-1 overflow-y-auto px-5 py-6 flex flex-col">
+            {/* Pages Accordion */}
+            <button
+              onClick={() => setIsPagesOpen(!isPagesOpen)}
+              className="flex items-center justify-between w-full pb-6"
+            >
+              <span className="text-[34px] font-heading font-light text-primary tracking-wide">
+                Pages
+              </span>
+              <ArrowDownIcon
+                className={cn(
+                  "w-6 h-6 text-primary transition-transform duration-300",
+                  isPagesOpen ? "rotate-180" : ""
+                )}
+              />
+            </button>
+
+            <AnimatePresence>
+              {isPagesOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
                 >
-                  {link.hasDropdown ? (
-                    <span>{link.label}</span>
-                  ) : (
-                    <Link href={link.href} className="w-full text-left">
-                      {link.label}
-                    </Link>
-                  )}
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-6 pb-10">
+                    <div className="flex flex-col gap-5">
+                      {pagesDropdown.col1.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          onClick={onClose}
+                          className="text-[15px] text-primary/80 hover:text-primary transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="flex flex-col gap-5">
+                      {pagesDropdown.col2.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          onClick={onClose}
+                          className="text-[15px] text-primary/80 hover:text-primary transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-                  {link.hasDropdown && (
-                    <ArrowDownIcon
-                      className={`w-4 h-4 transition-transform duration-200 ${isPagesOpen ? "rotate-180" : ""}`}
-                    />
-                  )}
-                </button>
+            {/* Main Links */}
+            <div className="flex flex-col gap-6 pb-8">
+              <Link
+                href="/shop"
+                onClick={onClose}
+                className="text-[34px] font-heading font-light text-primary tracking-wide"
+              >
+                Shop
+              </Link>
+              <Link
+                href="/about"
+                onClick={onClose}
+                className="text-[34px] font-heading font-light text-primary tracking-wide"
+              >
+                About
+              </Link>
+              <Link
+                href="/checkout"
+                onClick={onClose}
+                className="text-[34px] font-heading font-light text-primary tracking-wide"
+              >
+                Cart(0)
+              </Link>
+            </div>
 
-                <AnimatePresence>
-                  {link.hasDropdown && isPagesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="flex flex-col gap-1 pl-4 pb-4 border-l-2 border-border/50 ml-2 mt-2">
-                        {allDropdownItems.map((item) => {
-                          const isActive = pathname === item.href;
-                          return (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              className={`text-sm py-2 px-3 rounded-lg ${isActive ? "bg-primary/10 text-primary font-medium" : "text-muted-foreground hover:text-foreground"}`}
-                              onClick={onClose}
-                            >
-                              {item.label}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </nav>
+            <div className="flex-1" />
+
+            {/* Login Button */}
+            <div className="mt-6 mb-4">
+              <Link
+                href="/login"
+                onClick={onClose}
+                className="flex items-center justify-center w-full py-3.5 border border-primary text-primary text-[15px] transition-colors hover:bg-primary hover:text-background"
+              >
+                Login
+              </Link>
+            </div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
-
-export { MobileMenu };

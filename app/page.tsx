@@ -1,3 +1,4 @@
+import Header from "@/components/sections/Header/Header";
 import Hero from "@/components/sections/Hero/Hero";
 import Ingredients from "@/components/sections/Ingredients/Ingredients";
 import Featured from "@/components/sections/Featured/Featured";
@@ -12,6 +13,7 @@ import CTASubscribe from "@/components/sections/CTASubscribe/CTASubscribe";
 export default function Home() {
   return (
     <main>
+      <Header />
       <Hero />
       <Ingredients />
       <Featured />

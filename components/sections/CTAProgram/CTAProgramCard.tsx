@@ -1,7 +1,6 @@
 import type React from "react";
 
 import { Button } from "@/components/ui/button";
-import ArrowRight from "@/app/assets/icons/arrow-right.svg";
 
 export interface CTAProgramCardProps {
   Icon: React.ElementType;
@@ -27,9 +26,8 @@ export const CTAProgramCard = ({
           <h5 className="text-2xl text-gray-100">{title}</h5>
         </div>
       </div>
-      <Button variant="hero" className="w-min px-8 py-6 bg-gray-0 text-xl">
+      <Button variant="hero" className="w-min px-8 py-6 bg-gray-0 text-xl" withArrow>
         {buttonLabel}
-        <ArrowRight className="text-primary w-[30px] h-[18px]" />
       </Button>
     </div>
   );

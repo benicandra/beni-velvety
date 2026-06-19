@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/shared/ProductCard/ProductCard";
-import ArrowRight from "@/app/assets/icons/arrow-right.svg";
+import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
 
 import Classwing from "@/app/assets/products/classwing.webp";
 import Holocena from "@/app/assets/products/holocena.webp";
@@ -11,12 +11,10 @@ export default function Product() {
   return (
     <section className="flex flex-col gap-10 py-16 px-4 border border-primary-border overflow-hidden">
       <div className="flex flex-col gap-12">
-        <div className="flex flex-col gap-4">
-          <h6 className="text-2xl text-gray-40">More Products</h6>
-          <h2 className="text-[40px] text-gray-100">
-            Gentle skincare & facial for every day
-          </h2>
-        </div>
+        <SectionHeader
+          eyebrow="More Products"
+          title="Gentle skincare & facial for every day"
+        />
         <div className="flex gap-3">
           <Button variant="pillActive" size="pill">
             All needs
@@ -66,9 +64,9 @@ export default function Product() {
       <Button
         variant="hero"
         className="w-min border border-gray-100 px-8 py-6 bg-gray-0"
+        withArrow
       >
         Shop now
-        <ArrowRight className="text-primary w-[30px] h-[18px]" />
       </Button>
     </section>
   );

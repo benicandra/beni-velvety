@@ -3,17 +3,17 @@ import Thought from "@/app/assets/partners/thought.svg";
 import Vogue from "@/app/assets/partners/vogue.svg";
 import Women from "@/app/assets/partners/women.svg";
 import Wwd from "@/app/assets/partners/wwd.svg";
+import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
 
 export default function About() {
   return (
     <section className="flex flex-col py-16 px-4 gap-16">
       <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-6.5">
-          <h6 className="text-2xl text-gray-40">About us</h6>
-          <h2 className="text-[40px] text-gray-100">
-            Velvety facial and skincare company
-          </h2>
-        </div>
+        <SectionHeader
+          eyebrow="About us"
+          title="Velvety facial and skincare company"
+          className="gap-6.5"
+        />
         <p className="text-xl text-gray-80">
           Velvety is an indigenous company that specializes in the manufacture
           and development of facial and skincare products using the medicinal

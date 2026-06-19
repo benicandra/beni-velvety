@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Header } from "@/components/sections/Header/Header";
 import { Footer } from "@/components/sections/Footer/Footer";
 
 const aileron = localFont({
