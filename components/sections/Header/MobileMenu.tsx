@@ -27,7 +27,6 @@ export function MobileMenu({
           className="fixed inset-0 z-40 bg-background lg:hidden pt-20 flex flex-col"
         >
           <div className="flex-1 overflow-y-auto px-5 py-6 flex flex-col">
-            {/* Pages Accordion */}
             <button
               onClick={() => setIsPagesOpen(!isPagesOpen)}
               className="flex items-center justify-between w-full pb-6"
@@ -38,7 +37,7 @@ export function MobileMenu({
               <ArrowDownIcon
                 className={cn(
                   "w-6 h-6 text-primary transition-transform duration-300",
-                  isPagesOpen ? "rotate-180" : ""
+                  isPagesOpen ? "rotate-180" : "",
                 )}
               />
             </button>
@@ -82,7 +81,6 @@ export function MobileMenu({
               )}
             </AnimatePresence>
 
-            {/* Main Links */}
             <div className="flex flex-col gap-6 pb-8">
               <Link
                 href="/shop"
@@ -109,7 +107,6 @@ export function MobileMenu({
 
             <div className="flex-1" />
 
-            {/* Login Button */}
             <div className="mt-6 mb-4">
               <Link
                 href="/login"

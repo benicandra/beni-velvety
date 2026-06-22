@@ -14,7 +14,7 @@ export default function Featured() {
         className="px-4 text-center"
         titleClassName="tracking-wide"
       />
-      <div className="flex-col border border-primary-border">
+      <div className="flex flex-col lg:flex-row border border-primary-border">
         <ProductCard
           imageSrc={Chicori}
           title="CHICORI"

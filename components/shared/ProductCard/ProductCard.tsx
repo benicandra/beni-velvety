@@ -21,39 +21,39 @@ export const ProductCard = ({
   imageClassName,
 }: ProductCardProps) => {
   return (
-    <div className={cn("flex flex-col p-5 gap-6", className)}>
-      <div className="bg-primary-surface">
+    <div className={cn("flex flex-col p-5 gap-6 lg:flex-1", className)}>
+      <div className="flex w-full items-center justify-center bg-primary-surface py-8">
         <Image
           className={cn(
-            "relative w-[279.88px] h-[314px] left-[27.56px] object-cover",
-            imageClassName
+            "h-[314px] w-auto max-w-full object-contain",
+            imageClassName,
           )}
           src={imageSrc}
           alt={title}
         />
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex flex-col gap-2.5">
-          <h6 className="text-2xl text-primary">{title}</h6>
+        <h6 className="text-2xl text-primary">{title}</h6>
+        <div className="flex flex-col lg:flex-row lg:justify-between">
           <p className="text-[22px] text-primary font-bold">${price}</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="flex gap-1">
-            {Array.from({ length: 5 }).map((_, index) =>
-              index < Math.floor(rating) ? (
-                <StarFull
-                  key={index}
-                  className="w-[18.4px] h-[17.5px] text-gray-80"
-                />
-              ) : (
-                <Star
-                  key={index}
-                  className="w-[18.4px] h-[17.5px] text-gray-80"
-                />
-              ),
-            )}
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, index) =>
+                index < Math.floor(rating) ? (
+                  <StarFull
+                    key={index}
+                    className="w-[18.4px] h-[17.5px] text-gray-80"
+                  />
+                ) : (
+                  <Star
+                    key={index}
+                    className="w-[18.4px] h-[17.5px] text-gray-80"
+                  />
+                ),
+              )}
+            </div>
+            <p>{rating.toFixed(1)}</p>
           </div>
-          <p>{rating.toFixed(1)}</p>
         </div>
       </div>
     </div>

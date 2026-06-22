@@ -10,18 +10,32 @@ import { IngredientCard } from "./InggredientCard";
 
 export default function Ingredients() {
   return (
-    <section>
-      <div>
-        <div className="flex gap-2 pt-16 pb-12 px-4">
-          <h2 className="text-[40px] text-gray-100">
-            Inspired by traditional knowledge and nature
+    <section className="relative flex flex-col lg:flex-row lg:items-stretch">
+      <div className="flex flex-col lg:w-1/2 lg:pl-[5%] lg:pr-8 lg:py-24">
+        <div className="flex gap-2 pt-16 pb-12 px-4 lg:pt-0 lg:px-0 lg:pb-0">
+          <h2 className="text-[40px] text-gray-100 font-heading lg:text-[56px] lg:leading-[1.1] lg:font-light tracking-wide">
+            Inspired by traditional
+            <br className="hidden lg:block" /> knowledge and nature
           </h2>
         </div>
-        <div className="flex -mt-30">
-          <Image src={IngredientsImage} alt="" />
+
+        <div className="flex -mt-30 lg:hidden">
+          <Image src={IngredientsImage} alt="Ingredients" />
         </div>
       </div>
-      <div className="flex flex-col gap-8 py-14 px-4 bg-primary-surface">
+
+      <div className="pointer-events-none absolute inset-0 z-10 hidden lg:block">
+        <div className="pointer-events-auto absolute bottom-[-13%] left-[2%] z-20 w-[48%]">
+          <Image
+            src={IngredientsImage}
+            alt="Ingredients"
+            className="h-auto w-full object-contain"
+            priority
+          />
+        </div>
+      </div>
+
+      <div className="relative z-0 flex flex-col gap-8 bg-primary-surface px-4 py-14 lg:w-1/2 lg:justify-center lg:gap-12 lg:px-[4%] lg:py-24">
         <IngredientCard
           Icon={Organic}
           title="100% Organic"
@@ -30,7 +44,7 @@ export default function Ingredients() {
         <IngredientCard
           Icon={FitSkin}
           title="Fits your skin"
-          description="Its all natural and processed based on traditional knowledge with modern technology."
+          description="I'ts all natural and processed based on traditional knowledge with modern technology."
         />
         <IngredientCard
           Icon={EasyUse}
