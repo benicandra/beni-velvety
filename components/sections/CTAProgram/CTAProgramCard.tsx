@@ -16,7 +16,7 @@ export const CTAProgramCard = ({
   buttonLabel,
 }: CTAProgramCardProps) => {
   return (
-    <div className="flex flex-col gap-4 items-center">
+    <div className="flex flex-col gap-4 p-6 items-center">
       <div className="p-5.5">
         <Icon className="text-gray-80 w-[52px] h-auto" />
       </div>
@@ -26,7 +26,11 @@ export const CTAProgramCard = ({
           <h5 className="text-2xl text-gray-100">{title}</h5>
         </div>
       </div>
-      <Button variant="hero" className="w-min px-8 py-6 bg-gray-0 text-xl" withArrow>
+      <Button
+        variant="hero"
+        className="w-min px-8 py-6 bg-gray-0 text-xl lg:border lg:border-gray-100"
+        withArrow
+      >
         {buttonLabel}
       </Button>
     </div>

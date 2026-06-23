@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/sections/Footer/Footer";
+import Header from "@/components/sections/Header/Header";
 
 const aileron = localFont({
   src: [
@@ -54,8 +55,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", aileron.variable, ivyMode.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", aileron.variable, ivyMode.variable)}
+    >
       <body>
+        <Header />
         {children}
         <Footer />
       </body>

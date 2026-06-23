@@ -8,9 +8,9 @@ import Logo from "@/app/assets/Logo.svg";
 export function Footer() {
   return (
     <footer className="bg-background border-t border-border">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 border-b border-border/40">
-          <div className="flex flex-col gap-6 py-10 border-b border-border/40 items-center">
+      <div className="px-4 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-4 border-b border-border/40">
+          <div className="flex flex-col gap-6 py-10 border-b lg:border-b-0 lg:border-r border-border/40 items-center">
             <Logo className="w-[120px] h-10 text-gray-100" />
             <div className="flex flex-col text-gray-40 mt-4 items-center">
               <p className="font-medium text-sm mb-1">Opening hours</p>
@@ -42,7 +42,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col py-10 border-b border-border/40 px-8 items-center">
+          <div className="flex flex-col py-10 border-b lg:border-b-0 lg:border-r border-border/40 px-8 items-center">
             <h3 className="text-2xl text-gray-40 font-heading mb-6">Shop</h3>
             <ul className="flex flex-col gap-4 items-center">
               {footerNav.shop.map((link) => (
@@ -58,7 +58,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="flex flex-col py-10 border-b border-border/40 px-8 items-center">
+          <div className="flex flex-col py-10 border-b lg:border-b-0 lg:border-r border-border/40 px-8 items-center">
             <h3 className="text-2xl text-gray-40 font-heading mb-6">
               Help Desk
             </h3>
@@ -96,7 +96,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="py-6 flex flex-col items-center justify-between gap-4">
+        <div className="py-6 flex flex-col lg:flex-row items-center justify-between gap-4">
           <p className="text-center text-base text-gray-80 font-medium">
             © Designed by{" "}
             <span className="text-gray-100 font-bold">DhuhaCreative</span>.

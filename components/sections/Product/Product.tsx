@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/shared/ProductCard/ProductCard";
 import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
@@ -8,26 +11,27 @@ import Inamorata from "@/app/assets/products/inamorata.webp";
 import Lightcool from "@/app/assets/products/lightcool.webp";
 
 export default function Product() {
+  const [activeCategory, setActiveCategory] = useState("All needs");
+  const categories = ["All needs", "Protect", "Regenerate", "Revitalize"];
+
   return (
-    <section className="flex flex-col gap-10 py-16 px-4 border border-primary-border overflow-hidden">
+    <section className="flex lg:hidden flex-col gap-10 py-16 px-4 border border-primary-border overflow-hidden">
       <div className="flex flex-col gap-12">
         <SectionHeader
           eyebrow="More Products"
           title="Gentle skincare & facial for every day"
         />
-        <div className="flex gap-3">
-          <Button variant="pillActive" size="pill">
-            All needs
-          </Button>
-          <Button variant="pillInactive" size="pill">
-            Protect
-          </Button>
-          <Button variant="pillInactive" size="pill">
-            Regenerate
-          </Button>
-          <Button variant="pillInactive" size="pill">
-            Regenerate
-          </Button>
+        <div className="flex gap-3 flex-wrap">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={activeCategory === category ? "pillActive" : "pillInactive"}
+              size="pill"
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+            </Button>
+          ))}
         </div>
       </div>
       <div className="flex flex-col gap-10">

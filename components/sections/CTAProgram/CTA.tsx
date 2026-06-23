@@ -6,7 +6,7 @@ import { CTAProgramCard } from "./CTAProgramCard";
 
 export default function CTAProgram() {
   return (
-    <section className="flex flex-col gap-12 py-16 px-4">
+    <section className="flex flex-col lg:flex-row lg:justify-between gap-12 py-16 px-4 lg:px-20">
       <CTAProgramCard
         Icon={LoyalProgram}
         eyebrow="Loyalty Program"
@@ -14,7 +14,7 @@ export default function CTAProgram() {
         buttonLabel="Join the program"
       />
 
-      <div className="border-b border-[#d9d9d9] w-[88px] mx-auto" />
+      <div className="border-b lg:border-b-0 lg:border-r border-[#d9d9d9] w-[88px] lg:w-0 h-0 lg:h-[88px] mx-auto lg:mx-0 lg:self-center" />
 
       <CTAProgramCard
         Icon={BeautyShared}
@@ -23,7 +23,7 @@ export default function CTAProgram() {
         buttonLabel="Refer a Friend"
       />
 
-      <div className="border-b border-[#d9d9d9] w-[88px] mx-auto" />
+      <div className="border-b lg:border-b-0 lg:border-r border-[#d9d9d9] w-[88px] lg:w-0 h-0 lg:h-[88px] mx-auto lg:mx-0 lg:self-center" />
 
       <CTAProgramCard
         Icon={GoodWeather}

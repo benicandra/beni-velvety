@@ -17,7 +17,12 @@ export const SectionHeader = ({
   return (
     <div className={cn("flex flex-col gap-4", className)}>
       <h6 className="text-2xl text-gray-40">{eyebrow}</h6>
-      <h2 className={cn("text-[40px] text-gray-100", titleClassName)}>
+      <h2
+        className={cn(
+          "text-[40px] lg:text-[56px] text-gray-100",
+          titleClassName,
+        )}
+      >
         {title}
       </h2>
     </div>
