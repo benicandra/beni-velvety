@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
 
 export default function Services() {
   return (
-    <section className="flex flex-col lg:flex-row gap-12 py-16 px-4 lg:px-20">
+    <section className="mx-auto flex max-w-[1440px] flex-col lg:flex-row gap-12 py-16 px-4 lg:px-20">
       <div className="lg:flex-1 relative lg:left-20">
         <Image src={ServicesImage} alt="" />
       </div>

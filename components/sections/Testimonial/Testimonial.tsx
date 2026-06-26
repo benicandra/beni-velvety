@@ -1,35 +1,36 @@
 import Image from "next/image";
 
-import Holocena from "@/app/assets/products/holocena.webp";
 import StarFull from "@/app/assets/icons/star-full.svg";
 import RightArrow from "@/app/assets/icons/arrow-right.svg";
+import { testimonials } from "@/lib/data";
 
 export default function Testimonial() {
+  const testimonial = testimonials[0];
+
   return (
-    <section className="flex flex-col lg:flex-row gap-12 py-16 px-4 lg:px-20">
+    <section className="mx-auto flex max-w-[1440px] flex-col lg:flex-row gap-12 py-16 px-4 lg:px-20">
       <div className="relative aspect-345/538 w-full max-w-[345px] overflow-hidden rounded-[50%] bg-primary-surface">
         <Image
-          src={Holocena}
+          src={testimonial.image}
           alt="Holocena"
-          className="absolute left-1/2 top-[40%] h-[138%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-[50%] h-[90%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2"
         />
       </div>
       <div className="flex flex-col gap-8 lg:justify-between lg:py-12">
         <h6 className="text-2xl text-gray-40">Product Testimonials</h6>
         <div className="flex flex-col gap-8">
           <div className="flex gap-3.5">
-            <StarFull className="w-[35px] h-[35px] text-gray-40" />
-            <StarFull className="w-[35px] h-[35px] text-gray-40" />
-            <StarFull className="w-[35px] h-[35px] text-gray-40" />
-            <StarFull className="w-[35px] h-[35px] text-gray-40" />
-            <StarFull className="w-[35px] h-[35px] text-gray-40" />
+            {Array.from({ length: testimonial.rating }).map((_, index) => (
+              <StarFull
+                key={index}
+                className="w-[35px] h-[35px] text-gray-40"
+              />
+            ))}
           </div>
           <h3 className="text-[32px] lg:text-[40px] text-gray-100 font-normal tracking-wide leading-snug">
-            &ldquo;I&apos;ve been feeling pretty stressed with my skin lately,
-            so I picked up a set of HOLOCENA skincare. Oh my goodness!. It was
-            AMAZING. My skin felt so soft and moisturized&rdquo;
+            &ldquo;{testimonial.quote}&rdquo;
           </h3>
-          <p className="text-xl text-gray-40 italic">- Customer Review</p>
+          <p className="text-xl text-gray-40 italic">- {testimonial.source}</p>
         </div>
       </div>
       <div className="flex lg:flex-col gap-6 justify-center items-center">

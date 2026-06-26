@@ -21,11 +21,11 @@ export const ProductCard = ({
   imageClassName,
 }: ProductCardProps) => {
   return (
-    <div className={cn("flex flex-col p-5 gap-6 lg:flex-1", className)}>
-      <div className="flex w-full items-center justify-center bg-primary-surface py-8">
+    <div className={cn("flex flex-col p-5 gap-6 lg:flex-1 min-w-0", className)}>
+      <div className="flex w-full h-[400px] items-center justify-center overflow-hidden bg-primary-surface">
         <Image
           className={cn(
-            "h-[314px] w-auto max-w-full object-contain",
+            "h-[344px] w-auto max-w-full object-contain",
             imageClassName,
           )}
           src={imageSrc}

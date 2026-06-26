@@ -2,7 +2,7 @@ import ArrowRight from "@/app/assets/icons/arrow-right.svg";
 
 export default function CTA() {
   return (
-    <section className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6 py-8 px-4 lg:px-20 items-start bg-gray-40">
+    <section className="mx-auto flex max-w-[1440px] flex-col lg:flex-row lg:justify-between lg:items-center gap-6 py-8 px-4 lg:px-20 items-start bg-gray-40">
       <h2 className="text-[40px] lg:text-[56px] text-gray-0 w-full lg:w-4/6">
         Subscribe to get 10% off your first order
       </h2>

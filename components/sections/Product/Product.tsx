@@ -4,18 +4,14 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/shared/ProductCard/ProductCard";
 import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
-
-import Classwing from "@/app/assets/products/classwing.webp";
-import Holocena from "@/app/assets/products/holocena.webp";
-import Inamorata from "@/app/assets/products/inamorata.webp";
-import Lightcool from "@/app/assets/products/lightcool.webp";
+import { moreProducts } from "@/lib/data";
 
 export default function Product() {
   const [activeCategory, setActiveCategory] = useState("All needs");
   const categories = ["All needs", "Protect", "Regenerate", "Revitalize"];
 
   return (
-    <section className="flex lg:hidden flex-col gap-10 py-16 px-4 border border-primary-border overflow-hidden">
+    <section className="mx-auto flex max-w-[1440px] lg:hidden flex-col gap-10 py-16 px-4 border border-primary-border overflow-hidden">
       <div className="flex flex-col gap-12">
         <SectionHeader
           eyebrow="More Products"
@@ -35,35 +31,17 @@ export default function Product() {
         </div>
       </div>
       <div className="flex flex-col gap-10">
-        <ProductCard
-          imageSrc={Classwing}
-          title="CLASSWING  "
-          price={20}
-          rating={5.0}
-          className="border border-primary-border"
-        />
-        <ProductCard
-          imageSrc={Holocena}
-          title="HOLOCANE"
-          price={20}
-          rating={5.0}
-          className="border border-primary-border"
-        />
-        <ProductCard
-          imageSrc={Inamorata}
-          title="INAMORATA"
-          price={12}
-          rating={4.5}
-          className="border border-primary-border"
-          imageClassName="-top-15"
-        />
-        <ProductCard
-          imageSrc={Lightcool}
-          title="LIGHTCOOL"
-          price={22.5}
-          rating={5.0}
-          className="border border-primary-border"
-        />
+        {moreProducts.map((product, index) => (
+          <ProductCard
+            key={product.id}
+            imageSrc={product.image}
+            title={product.title}
+            price={product.price}
+            rating={product.rating}
+            className="border border-primary-border"
+            imageClassName={index === 2 ? "-top-15" : undefined}
+          />
+        ))}
       </div>
       <Button
         variant="hero"

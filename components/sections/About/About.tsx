@@ -1,13 +1,9 @@
-import Forbes from "@/app/assets/partners/forbes.svg";
-import Thought from "@/app/assets/partners/thought.svg";
-import Vogue from "@/app/assets/partners/vogue.svg";
-import Women from "@/app/assets/partners/women.svg";
-import Wwd from "@/app/assets/partners/wwd.svg";
+import { partners } from "@/lib/data";
 import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
 
 export default function About() {
   return (
-    <section className="flex flex-col py-16 px-4 lg:px-20 gap-16">
+    <section className="mx-auto flex max-w-[1440px] flex-col py-16 px-4 lg:px-20 gap-16">
       <div className="flex flex-col lg:flex-row justify-around gap-8">
         <SectionHeader
           eyebrow="About us"
@@ -29,11 +25,10 @@ export default function About() {
       <div className="flex flex-col gap-10">
         <h6 className="text-2xl text-gray-40">As seen in</h6>
         <div className="grid grid-cols-2 lg:flex lg:flex-row lg:justify-between gap-y-10 items-center justify-items-start">
-          <Vogue className="text-primary-border w-[136px] lg:w-[217px] h-auto" />
-          <Forbes className="text-primary-border w-[150px] lg:w-[235px] h-auto" />
-          <Thought className="text-primary-border w-[141px] lg:w-[179px] h-auto" />
-          <Women className="text-primary-border w-[170px] lg:w-[272px] h-auto" />
-          <Wwd className="text-primary-border w-[146px] lg:w-[192px] h-auto" />
+          {partners.map((partner) => {
+            const Logo = partner.logo;
+            return <Logo key={partner.id} className={partner.className} />;
+          })}
         </div>
       </div>
     </section>

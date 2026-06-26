@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { footerNav } from "@/config/navigation";
-import FbIcon from "@/app/assets/icons/facebook-logo.svg";
-import IgIcon from "@/app/assets/icons/instagram-logo.svg";
-import TwIcon from "@/app/assets/icons/twitter-logo.svg";
+import { socialLinks } from "@/lib/data";
 import Logo from "@/app/assets/Logo.svg";
 
 export function Footer() {
   return (
     <footer className="bg-background border-t border-border">
-      <div className="px-4 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-4 border-b border-border/40">
+      <div className="mx-auto max-w-[1440px] px-4 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-4 lg:justify-between border-b border-border/40">
           <div className="flex flex-col gap-6 py-10 border-b lg:border-b-0 lg:border-r border-border/40 items-center">
             <Logo className="w-[120px] h-10 text-gray-100" />
             <div className="flex flex-col text-gray-40 mt-4 items-center">
@@ -18,27 +16,19 @@ export function Footer() {
               <p className="text-gray-100 text-lg">10:30 a.m. to 7 p.m.</p>
             </div>
             <div className="flex items-center gap-4 mt-auto pt-8">
-              <a
-                href="#"
-                className="text-primary transition-opacity hover:opacity-80"
-                aria-label="Instagram"
-              >
-                <IgIcon className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-primary transition-opacity hover:opacity-80"
-                aria-label="Twitter"
-              >
-                <TwIcon className="w-6 h-6" />
-              </a>
-              <a
-                href="#"
-                className="text-primary transition-opacity hover:opacity-80"
-                aria-label="Facebook"
-              >
-                <FbIcon className="w-6 h-6" />
-              </a>
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    className="text-primary transition-opacity hover:opacity-80"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

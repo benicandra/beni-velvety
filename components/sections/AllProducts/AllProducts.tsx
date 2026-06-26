@@ -4,11 +4,7 @@ import { useState } from "react";
 import { SectionHeader } from "@/components/shared/SectionHeader/SectionHeader";
 import { ProductCard } from "@/components/shared/ProductCard/ProductCard";
 import { Button } from "@/components/ui/button";
-
-import Classwing from "@/app/assets/products/classwing.webp";
-import Holocena from "@/app/assets/products/holocena.webp";
-import Inamorata from "@/app/assets/products/inamorata.webp";
-import Lightcool from "@/app/assets/products/lightcool.webp";
+import { moreProducts } from "@/lib/data";
 
 export default function AllProducts() {
   const [activeCategory, setActiveCategory] = useState("All needs");
@@ -34,8 +30,8 @@ export default function AllProducts() {
   ];
 
   return (
-    <section className="hidden lg:flex flex-col lg:flex-row gap-16 px-4 lg:px-20 py-24 bg-gray-0">
-      <div className="flex flex-col lg:w-[40%] gap-12">
+    <section className="mx-auto hidden max-w-[1440px] lg:flex flex-col lg:flex-row gap-16 px-4 lg:px-20 py-24 bg-gray-0">
+      <div className="flex flex-col lg:w-1/2 gap-12">
         <SectionHeader
           eyebrow="All Products"
           title="Mild skincare & facial routine"
@@ -58,36 +54,18 @@ export default function AllProducts() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:w-[60%] gap-8">
+      <div className="flex flex-col lg:w-1/2 gap-8">
         <div className="grid md:grid-cols-2 gap-6">
-          <ProductCard
-            imageSrc={Classwing}
-            title="CLASSWING"
-            price={20}
-            rating={5.0}
-            className="border border-primary-border"
-          />
-          <ProductCard
-            imageSrc={Holocena}
-            title="HOLOCANE"
-            price={23}
-            rating={5.0}
-            className="border border-primary-border"
-          />
-          <ProductCard
-            imageSrc={Inamorata}
-            title="INAMORATA"
-            price={12}
-            rating={4.5}
-            className="border border-primary-border"
-          />
-          <ProductCard
-            imageSrc={Lightcool}
-            title="LIGHTCOOL"
-            price={22.5}
-            rating={5.0}
-            className="border border-primary-border"
-          />
+          {moreProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              imageSrc={product.image}
+              title={product.title}
+              price={product.price}
+              rating={product.rating}
+              className="border border-primary-border"
+            />
+          ))}
         </div>
 
         <div className="flex justify-start mt-4">

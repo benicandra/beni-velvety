@@ -21,7 +21,7 @@ export default function Hero() {
 
       <div className="absolute inset-y-0 left-0 -z-10 hidden w-1/2 bg-gray-40 lg:block" />
 
-      <div className="relative z-10 flex min-h-dvh w-full flex-col pt-24 pb-8 lg:h-full lg:min-h-0 lg:flex-row lg:pt-0 lg:pb-0">
+      <div className="relative z-10 mx-auto flex h-full min-h-dvh w-full max-w-[1440px] flex-col pt-24 pb-8 lg:min-h-0 lg:flex-row lg:pt-0 lg:pb-0">
         <div className="flex flex-col gap-8 items-center text-center px-4 lg:hidden">
           <h1 className="text-5xl font-heading font-light text-gray-0">
             Let nature take care of your body and soul
@@ -103,7 +103,7 @@ export default function Hero() {
         </div>
 
         <div className="pointer-events-none absolute inset-0 z-20 hidden lg:block">
-          <div className="pointer-events-auto absolute left-[38%] top-[18%] flex w-[min(58vw,860px)] flex-col gap-16 text-left">
+          <div className="pointer-events-auto absolute left-[38%] top-[18%] flex w-[min(58%,860px)] flex-col gap-16 text-left">
             <h1 className="font-heading text-[clamp(4.75rem,7vw,6.625rem)] font-light leading-[1.12] tracking-wide text-gray-0 drop-shadow-sm">
               Let nature take
               <br />
